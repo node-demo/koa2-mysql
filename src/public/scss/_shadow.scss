@@ -1,0 +1,71 @@
+.shadow {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  display: none;
+}
+
+.wishing {
+  width: 400px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  h2 {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: -o-linear-gradient(top, #daf1f8, #f2fafd);
+    background: -ms-linear-gradient(top, #daf1f8, #f2fafd);
+    background: -moz-linear-gradient(top, #daf1f8, #f2fafd);
+    background: -webkit-linear-gradient(top, #daf1f8, #f2fafd);
+    background: linear-gradient(top, #daf1f8, #f2fafd);
+  }
+  input[type=text],
+  textarea,
+  .content{
+    display: block;
+    padding: 0px;
+    width: 100%;
+    line-height: 30px;
+    text-indent: 10px;
+    border:1px solid #ccc;
+    color: #666;
+  }
+  input[type=submit]{
+    position: absolute;
+    right: 10px;
+    width: 120px;
+    height: 50px;
+    border:0;
+    cursor: pointer;
+    background: url(../img/bg-submit.png) no-repeat;
+  }
+  textarea{
+    line-height: 25px;
+    font-size: 16px;
+    resize: none
+  }
+  .close {
+    margin-top: 8px;
+  }
+  .item {
+    padding: 10px 20px;
+    position: relative;
+  }
+  .content{
+    margin:10px auto;
+    padding: 5px 0;
+    height: 125px;
+  }
+  .btn{
+    height: 50px;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "koa2-wish",
+  "version": "1.0.0",
+  "description": "> koa2 wish",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js",
+    "watch": "nodemon --exec npm run start",
+    "build": "babel src -d dist"
+  },
+  "keywords": [
+    "koa2"
+  ],
+  "author": "Saturn",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "next",
+    "koa-bodyparser": "next",
+    "koa-ejs": "^3.0.0",
+    "koa-router": "next",
+    "koa-static": "^2.0.0",
+    "koa-views": "next",
+    "mysql2": "^1.1.2",
+    "nodemon": "^1.11.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.13.2",
+    "babel-polyfill": "6.13.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-3": "6.5.0"
+  }
+}
