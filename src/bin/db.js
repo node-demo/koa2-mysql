@@ -37,8 +37,8 @@ const sequelize = new Sequelize(config.database, config.user, config.password, {
   }
 });
 
-// 模型：Wish
-const User = sequelize.define('User', {
+// 模型：User
+const user = sequelize.define('User', {
   ID: {
     type: Sequelize.STRING(50),
     primaryKey: true
@@ -56,7 +56,7 @@ const User = sequelize.define('User', {
 export const Config = config;
 
 // 导出模型
-export const Wish = User;
+export const User = user;
 
 // 旧架构
 //import mysql from 'mysql';
