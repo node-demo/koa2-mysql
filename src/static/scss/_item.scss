@@ -1,0 +1,9 @@
+@import 'mixin/_paper.scss';
+
+.main {
+  @include paper(0);
+  @include paper(1);
+  @include paper(2);
+  @include paper(3);
+  @include paper(4);
+}

@@ -1,23 +1,33 @@
 import KoaRouter from 'koa-router';
+import mysql2 from 'mysql2/promise';
+import {Config,Wish} from '../bin/db';
+
 const router = KoaRouter();
 
-import mysql from 'mysql2/promise';
-import option from '../bin/db';
+// (async function MysqlPro(g) {
+//   g.db =  await mysql2.createConnection(Config);
+// })(global);
 
-var data = [];
+/**
+ * @patams null
+ * return router.render('index)
+ */
+router.get('/', async (ctx, next) => {
 
-router.get('/', async(ctx, next) => {
-  let db = await mysql.createConnection(option);
-  let [rows, fields] = await db.execute('SELECT * FROM wish');
+  let db =  await mysql2.createConnection(Config);
+  let [rows, fields] = await db.execute('SELECT * FROM wish WHERE ID != ""');
 
-  data = rows;
+  global.data = rows;
   await next();
-}, async(ctx, next) => {
+
+}, async (ctx, next) => {
+
+  //指定渲染模板
   await ctx.render('index', {
-    code: 1,
-    msg: '请求成功',
-    list: data
+    title: '首页',
+    list: global.data
   });
+
 });
 
 export default router;

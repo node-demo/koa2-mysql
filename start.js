@@ -7,6 +7,4 @@ require("babel-core/register")(
 );
 
 require("babel-polyfill");
-
-// require("./server.js");
 require("./src/app.js");

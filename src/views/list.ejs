@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link rel="stylesheet" type="text/css" href="./css/app.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="row nav">
+        <a class="send" href="javascript:;"></a>
+      </div>
+    </header>
+    <div class="row main">
+      <% list.forEach(function(item){ %>
+      <dl class="wish a<%= item.ID % 5 %>">
+        <dt>
+          <span class="name">我是<%= item.username %></span>
+          <span class="num">No.<%= item.ID %></span>
+        </dt>
+        <dd class="text">
+          <%- item.content %>
+        </dd>
+        <dd class="bottom">
+          <span class="time">今天 time</span>
+          <span class="close"></span>
+        </dd>
+      </dl>
+      <% }) %>
+    </div>
+
+    <footer>
+      <div class="row">
+        <p>为2017许个小小的愿望 ^_^</p>
+      </div>
+    </footer>
+
+    <div class="shadow">
+      <div class="wishing">
+        <h2>
+          <span>许个愿望吧^_^</span>
+          <span class="close"></span>
+        </h2>
+        <form action="/api2" method="post" class="wishing-form">
+          <div class="item"><input type="text" name="username" placeholder="昵称"></div>
+          <div class="item">
+            <textarea rows="5" name="content" placeholder="愿望..."></textarea>
+            <span>还可以输入<em class="key">140</em>字</span>
+          </div>
+          <ul class="item emoji">
+            <li data-emoji="[大哭]" class="emoji0"></li>
+            <li data-emoji="[害羞]" class="emoji1"></li>
+            <li data-emoji="[憨笑]" class="emoji2"></li>
+            <li data-emoji="[奸笑]" class="emoji3"></li>
+            <li data-emoji="[可爱]" class="emoji4"></li>
+            <li data-emoji="[玫瑰]" class="emoji5"></li>
+            <li data-emoji="[难过]" class="emoji6"></li>
+            <li data-emoji="[太阳]" class="emoji7"></li>
+            <li data-emoji="[调皮]" class="emoji8"></li>
+            <li data-emoji="[偷笑]" class="emoji9"></li>
+            <li data-emoji="[香吻]" class="emoji10"></li>
+            <li data-emoji="[握手]" class="emoji11"></li>
+            <li data-emoji="[疑问]" class="emoji12"></li>
+            <li data-emoji="[拥抱]" class="emoji13"></li>
+            <li data-emoji="[再见]" class="emoji14"></li>
+            <li data-emoji="[真棒]" class="emoji15"></li>
+          </ul>
+          <div class="item btn">
+            <input class="sub" type="submit" value="">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/jquery.js"></script>
+  <script src="./js/jquery-drag.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+</html>

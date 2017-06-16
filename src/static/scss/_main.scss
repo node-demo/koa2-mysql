@@ -1,0 +1,55 @@
+#app{
+  height: 100%;
+}
+.main {
+  height: calc(100% - 118px - 80px);
+  position: relative;
+  .wish {
+    width: 235px;
+    height: auto;
+    color: #666;
+    overflow: hidden;
+    dt {
+      padding: 48px 0 0 20px;
+      line-height: 20px;
+      cursor: move;
+      background: url(../img/a1_1.gif) no-repeat;
+      overflow:hidden;
+      .name{
+        float: left;
+      }
+      .num{
+        float: right;
+        padding-right: 10px;
+      }
+    }
+    dd {
+      padding-left: 25px;
+      line-height: 18px;
+      word-break: break-all;
+      word-wrap: normal;
+    }
+    .text {
+      padding-top: 20px;
+      background: url(../img/a1_2.gif) repeat-y -2px;
+      i{
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        margin:0;
+        vertical-align: text-bottom;
+        background-image: url(../img/bg-emoji.png);
+        background-size: 32px auto;
+      }
+    }
+    .bottom {
+      height: 40px;
+      padding-top: 32px;
+      background: url(../img/a1_3.gif) no-repeat;
+      overflow: hidden;
+    }
+    .time {
+      float: left;
+    }
+  }
+}

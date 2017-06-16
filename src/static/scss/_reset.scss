@@ -1,0 +1,42 @@
+html{
+  height: 100%;
+}
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,dd{
+  margin: 0;
+  padding: 0;
+}
+body{
+  height: 100%;
+  font-size: 13px;
+  background:url(../img/bg-body.png) repeat;
+}
+a{
+  text-decoration: none;
+}
+img{
+  border:0;
+}
+li{
+  list-style: none;
+}
+i,em{
+  font-style: normal;
+}
+
+/* public */
+.row {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.close {
+  float: right;
+  width: 29px;
+  height: 24px;
+  margin-right: 10px;
+  background: url(../img/bg-close.png) no-repeat;
+}
+.close:hover {
+  background-position: -43px 0;
+}

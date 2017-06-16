@@ -1,27 +1,78 @@
 import KoaRouter from 'koa-router';
+import mysql2 from 'mysql2/promise';
+import Common from '../bin/common';
+import {Config,Wish} from '../bin/db';
+
+(async function MysqlPro(g) {
+  g.db =  await mysql2.createConnection(Config);
+})(global);
+
 const router = KoaRouter();
 
-import mysql from 'mysql2/promise';
-import option from '../bin/db';
+/**
+ * @patams null
+ * return {
+ *    code:Number
+ *    msg:String
+ *    list:Array
+ * }
+ */
+router.get('/api', async (ctx, next) => {
 
-var data = [];
+  let [results, fields] = await global.db.execute('SELECT * FROM wish WHERE ID != ""');
+  global.data = results;
 
-router.get('/api', async(ctx, next) => {
-    let db = await mysql.createConnection(option);
-    let [rows, fields] = await db.execute('SELECT * FROM wish');
+  await next();
 
-    data = rows;
-    await next();
 }, (ctx, next) => {
-    ctx.body = {
-        code: 1,
-        msg: '请求成功',
-        list: data
-    };
+
+  ctx.body = {
+    code: 1,
+    msg: '请求成功',
+    list: global.data
+  };
+
 });
 
-router.post('/api', (ctx, next) => {
-    console.log(ctx.body);
+/**
+ * @patams username(String)
+ * @patams content(String)
+ * return {}
+ */
+router.post('/api', async (ctx, next) => {
+
+  let name = ctx.request.body.username || 'null';
+  let content = ctx.request.body.content || 'null';
+
+  await next();
+
+  let [results,fields] = await global.db.execute('insert into wish() values(null,?,?,?)', [name, content, Common.time()]);
+  ctx.body = {};
+
+});
+
+/**
+ * @patams username(String)
+ * @patams content(String)
+ * return {}
+ */
+router.post('/api2', async (ctx, next) => {
+
+  let name = ctx.request.body.username || 'null';
+  let content = ctx.request.body.content || 'null';
+
+  await next();
+
+  let result = await Wish.create({
+    Id: '',
+    username: name,
+    content: content,
+    time: `${Date.now()}`
+  });
+
+  console.log(result.dataValues);
+  ctx.body = {};
+
 });
 
 export default router;
