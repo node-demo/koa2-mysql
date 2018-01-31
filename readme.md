@@ -8,9 +8,7 @@
 </pre>
 
 #### 技术栈
-- node
-- koa2
-- mySQL
-- sequelize
-
-
+- Node
+- Koa2
+- MySQL
+- Sequelize
